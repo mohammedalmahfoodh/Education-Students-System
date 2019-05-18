@@ -12,6 +12,13 @@ import java.util.List;
 public interface StudentRepository extends CrudRepository<Student, Integer> {
 
    Student findByEmail(String email);
+
    Student findBySocialSecurityNumber(String socialSecurityNumber);
 
+   Student findById(int id);
+
+   void deleteById(int id);
+
+
 }
+

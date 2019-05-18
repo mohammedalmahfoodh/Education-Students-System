@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-
+@CrossOrigin(origins = "*", allowedHeaders = "*",maxAge = 10000)
 @JsonIgnoreProperties
 @RestController()
 public class StudentController {
@@ -46,6 +46,13 @@ public class StudentController {
 
     }
 
+    @GetMapping("/student/getById")
+    public ResponseEntity<Student> getStudentById(@RequestParam int id) {
+
+        return studentService.getStudentById(id);
+
+    }
+
     @GetMapping("/student/getByEmail")
     public ResponseEntity<Student> getStudentByEmail(@RequestParam String email) {
 
@@ -53,11 +60,21 @@ public class StudentController {
 
     }
 
+
     @GetMapping("/student/getBySocialSecurity")
     public ResponseEntity<Student> getStudentBySocialSecurity(@RequestParam String socialSecurity) {
 
         return studentService.getStudentBySocialSecurity(socialSecurity);
 
     }
+    @GetMapping("/student/getStudentsNames")
+    public ResponseEntity<List<String>> getStudentsNames() {
 
+        return studentService.getStudentsNames();
+
+    }
+    @DeleteMapping("/student/deleteStudent")
+    public ResponseEntity<String> deleteStudent(@RequestParam int id){
+       return studentService.deleteStudentById(id);
+    }
 }
