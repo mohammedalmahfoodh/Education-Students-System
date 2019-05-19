@@ -4,8 +4,8 @@ import Home from './components/Home/Home';
 import AddNewStudent from './components/student/addNewStudent/addNewStudent';
 import MainStudentPortal from './components/student/mainStudentPortal/mainStudentPortal';
 import DisplayStudents from './components/student/displayStudents/displayStudents';
-import {BrowserRouter,Route}from 'react-router-dom';
-
+import {BrowserRouter,Route,Switch}from 'react-router-dom';
+import EditStudent from'./components/student/EditStudent/editStudent'
 
 class App extends Component {
   render(){
@@ -18,12 +18,17 @@ class App extends Component {
         <NavApp/>
           
         </header>
+        <Switch>
+        
         <Route exact path='/' component={Home}/>
         <Route  path='/home' component={Home}/>
-        <Route path='/ٍstudent/AddNewStudent' component={AddNewStudent}/>
+        <Route path='/student/studentPortal/AddNewStudent' component={AddNewStudent}/>
         <Route path='/student/studentPortal' component={MainStudentPortal}/>
         <Route path='/student/DisplayStudents' component={DisplayStudents}/>
-        <Route path='/about' component={Home}/>
+        <Route path='/about' component={Home}/>  
+        <Route path="/student/editStudent/:student_id" component={EditStudent}/>   
+        </Switch>
+       
       </div>
       </BrowserRouter>
     );
