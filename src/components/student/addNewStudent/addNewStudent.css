@@ -4,21 +4,8 @@
     font-family: 'Arial', cursive;
     
 }
-/* label color */
-.input-field label {
-    color: rgb(15, 71, 97);
-  }
-  
-  /* label underline focus color */
-  .input-field input[type=text]:focus {
-    border-bottom: 1px solid #000;
-    box-shadow: 0 1px 0 0 #000;
-  }
-  
-  
-  /* invalid color */
-  .input-field input[type=text].invalid {
-    border-bottom: 1px solid rgb(97, 15, 15);
-    box-shadow: 0 1px 0 0 rgb(107, 18, 18);
-  }
-  
+.btn{
+    margin-bottom: 5%;
+    
+}
+
