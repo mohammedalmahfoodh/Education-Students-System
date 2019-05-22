@@ -65,13 +65,19 @@ public class StudentService {
 
     //**************** Get student by BySocialSecurity *************
     public ResponseEntity<Student> getStudentBySocialSecurity(String socialSecurityNumber) {
+        int lengthOfSocial = socialSecurityNumber.length();
+        int lastIndexOfSocial = lengthOfSocial;
+        int indexOfFourthLastChar = lastIndexOfSocial - 4;
+        String lastFourtCharsSocial = socialSecurityNumber.substring(indexOfFourthLastChar, lastIndexOfSocial);
 
-        Student student = studentRepository.findBySocialSecurityNumber(socialSecurityNumber);
-        if (student == null)
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        List<Student> studentList = (List<Student>) studentRepository.findAll();
+        Student student = studentList.stream()
+                .filter(studentInList -> studentInList.getSocialSecurityNumber().contains(lastFourtCharsSocial))
+                .findAny()
+                .orElse(null);
 
 
-        return new ResponseEntity<>(null, HttpStatus.OK);
+        return new ResponseEntity<>(student, HttpStatus.OK);
     }
 
     //**************** Get student Names *************
@@ -93,12 +99,26 @@ public class StudentService {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 
         Student studentToDelete = studentRepository.findById(id);
-        if (studentToDelete == null){
+        if (studentToDelete == null) {
             return new ResponseEntity<>("Student not exists to delete", HttpStatus.NOT_FOUND);
         }
         studentRepository.deleteById(id);
 
         return new ResponseEntity<>("Student deleted successfully", HttpStatus.OK);
+    }
+
+    //**************** Update student By Id *************
+    public ResponseEntity<String> updateStudent(Student student) {
+
+        Student studentInDB = studentRepository.findById(student.getStudentId());
+        if (studentInDB == null)
+            return new ResponseEntity<>("Student not exists to update", HttpStatus.NOT_FOUND);
+
+
+
+        studentRepository.save(student);
+
+        return new ResponseEntity<>("Student updated successfully", HttpStatus.OK);
     }
 
 }

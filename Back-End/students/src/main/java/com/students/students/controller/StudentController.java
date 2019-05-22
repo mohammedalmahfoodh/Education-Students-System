@@ -77,4 +77,10 @@ public class StudentController {
     public ResponseEntity<String> deleteStudent(@RequestParam int id){
        return studentService.deleteStudentById(id);
     }
+
+    @PutMapping("/student/updateStudent")
+    public ResponseEntity<String> updateStudent(@RequestBody Student student){
+        return studentService.updateStudent(student);
+    }
+
 }

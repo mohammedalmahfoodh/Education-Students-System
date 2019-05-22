@@ -66,7 +66,7 @@ class DisplayStudents extends Component {
                     <td>{student.email}</td>
                     <td >{student.address}</td>
                     <td id="phoneData" className="offset-s1">{student.phone}</td>
-                    <NavLink to={"/student/editStudent/" + student.studentId} id="refresh"> <i className="material-icons edit">refresh</i></NavLink>
+                    <NavLink to={"/student/editStudent/" + student.socialSecurityNumber} id="refresh"> <i className="material-icons edit">refresh</i></NavLink>
                     <td>  <a href="#" onClick={() => this.deleteStudent(student.studentId)}><i className="material-icons delete">clear</i> </a></td>
                 </tr>
 

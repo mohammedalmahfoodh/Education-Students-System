@@ -4,7 +4,8 @@ const NavApp = () => {
     return (
        
             <nav className="nav-wrapper grey darken-3">
-                <div className="container">                
+                <div className="container">   
+                                 
                 <ul className="right">
                <li><NavLink className=" z-depth-2" to="/home">Home</NavLink> </li> 
                <li><NavLink className="z-depth-2" to="/contact">Contact</NavLink> </li>  

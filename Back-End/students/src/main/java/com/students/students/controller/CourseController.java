@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-
+@CrossOrigin(origins = "*", allowedHeaders = "*",maxAge = 10000)
 @JsonIgnoreProperties
 @RestController()
 public class CourseController {

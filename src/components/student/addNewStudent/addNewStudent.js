@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './addNewStudent.css'
-import { conditionalExpression } from '@babel/types';
+import axios from'axios';
 
 class AddNewStudent extends Component {
 
@@ -12,25 +12,30 @@ class AddNewStudent extends Component {
             email: '',
             address: '',
             phone: ''
+            
         }
     }
     getStudentInfo = (e) => {
         this.setState({
             [e.target.id]: e.target.value
+           
         })
 
     }
     createStudent = (e) => {
         e.preventDefault();
-        
-        console.log(this.state)
+        console.log(this.state);
+       axios.post('http://localhost:8080/student/savestudent',this.state)
+       .then(res=>console.log(res))
+       setTimeout(()=>{this.props.history.push('/addedSuccessfully')},1000) 
+
     }
 
     render() {
-
+      
         return (
 
-            <div className="row container AddNewStudentContainer center">
+            <div id="AddNewStudentContainer" className="row container center">
 
                 <div className="col s7 card-panel  hoverable center indigo lighten-5">
                     <h6>Enter valid information to create a new student</h6>
@@ -79,7 +84,7 @@ class AddNewStudent extends Component {
                         <button className="btn waves-effect waves-light light-blue accent-4" type="submit" name="action">Create student
                               <i className="material-icons right">send</i>
                         </button>
-
+                        
                     </form>
 
                 </div>

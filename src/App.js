@@ -1,9 +1,17 @@
 import React ,{ Component } from 'react';
 import NavApp from './components/NavApp';
 import Home from './components/Home/Home';
+
 import AddNewStudent from './components/student/addNewStudent/addNewStudent';
 import MainStudentPortal from './components/student/mainStudentPortal/mainStudentPortal';
 import DisplayStudents from './components/student/displayStudents/displayStudents';
+import SearchModify from './components/student/searchAndModify/searchModify';
+import StudentCreatedSuccessfully from './components/student/addNewStudent/studentCreatedSuccessfully';
+
+import AddNewCourse from './components/course/addCourse/addNewCourse';
+import CoursePortal from './components/course/coursePortal/coursePortal';
+import DisplayCourses from './components/course/displayCourse/displayCourse';
+
 import {BrowserRouter,Route,Switch}from 'react-router-dom';
 import EditStudent from'./components/student/EditStudent/editStudent'
 
@@ -25,8 +33,15 @@ class App extends Component {
         <Route path='/student/studentPortal/AddNewStudent' component={AddNewStudent}/>
         <Route path='/student/studentPortal' component={MainStudentPortal}/>
         <Route path='/student/DisplayStudents' component={DisplayStudents}/>
+        <Route path='/student/SearchModify' component={SearchModify}/>
+       
+        AddNewCourse
+        <Route path='/course/addNewCourse' component={AddNewCourse}/>
+        <Route path='/course/displayCourse' component={DisplayCourses}/>
+        <Route path='/course/CoursePortal' component={CoursePortal}/>
+        <Route path='/addedSuccessfully' component={StudentCreatedSuccessfully}/>
         <Route path='/about' component={Home}/>  
-        <Route path="/student/editStudent/:student_id" component={EditStudent}/>   
+        <Route path="/student/editStudent/:student_ssn" component={EditStudent}/>   
         </Switch>
        
       </div>
