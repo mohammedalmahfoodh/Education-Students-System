@@ -34,5 +34,9 @@ public class CourseController {
 
         return courseService.getCourseById(courseId);
     }
+    @DeleteMapping("/course/deleteCourse")
+    public ResponseEntity<String> deleteCourse(@RequestParam Long id){
+        return courseService.deleteCourseById(id);
+    }
 
 }

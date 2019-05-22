@@ -13,8 +13,6 @@ import java.util.Set;
 
 @Table(name = "courses")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"startDate", "endDate"},
-        allowGetters = true,allowSetters = true)
 @Entity
 public class Course implements Serializable {
     @Id

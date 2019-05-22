@@ -52,7 +52,8 @@ class AddNewCourse extends Component {
     createCourse = (e) => {
         e.preventDefault();
         console.log(this.state);
-        axios.post('http://localhost:8080/course/savecourse', this.state)
+        axios.post('http://localhost:8080/course/savecourse',
+        {courseName:this.state.courseName,startDate:this.state.startDate,endDate:this.state.endDate} )
             .then(res => console.log(res))
         setTimeout(() => { this.props.history.push('/addedSuccessfully') }, 1000)
 
@@ -73,9 +74,9 @@ class AddNewCourse extends Component {
                     <form id="addStudent" onSubmit={this.createCourse}>
                         <div className="input-field  ">
                             <i className="material-icons prefix">account_circle</i>
-                            <input id="name" type="text" className="validate " value={this.state.name}
+                            <input id="courseName" type="text" className="validate " value={this.state.name}
                                 onChange={(this.getCourseInfo)} required minLength="3" />
-                            <label htmlFor="name">Course Name</label>
+                            <label htmlFor="courseName">Course Name</label>
                             <span className="helper-text" data-error="wrong must be at least 3 characters" data-success="right"></span>
                         </div>
                         <div className="input-field  ">

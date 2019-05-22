@@ -25,21 +25,18 @@ public class CourseService {
     CourseRepository courseRepository;
    // GenerateCourseIdImpl generateCourseIdImpl=new GenerateCourseIdImpl();
 
+    ////************ Create new courses *****************
+
     public ResponseEntity<String> createNewCourse(Course course) {
         if (course == null)
             return new ResponseEntity<>("There is no course to save", HttpStatus.UNPROCESSABLE_ENTITY);
 
-        List<Course>courseList= (List<Course>) courseRepository.findAll();
-        for (Course course1:courseList  ) {
-            if (course1.getCourseName().equalsIgnoreCase(course.getCourseName()));
-            return new ResponseEntity<>("The course is already exists",HttpStatus.BAD_REQUEST);
-        }
+         LocalDate localDate= course.getStartDate().plusDays(1);
+         LocalDate localDate1= course.getEndDate().plusDays(1);
+         course.setStartDate(localDate);
+         course.setEndDate(localDate1);
+        
 
-     //   generateCourseIdImpl.generateId(course.getCourseSerialNumber());
-        LocalDate startDate=LocalDate.now().plusWeeks(3);
-        LocalDate endDate=LocalDate.now().plusWeeks(10);
-        course.setStartDate(startDate);
-        course.setEndDate(endDate);
         courseRepository.save(course);
 
         return new ResponseEntity<>("Course saved successfully", HttpStatus.OK);
@@ -68,6 +65,21 @@ public class CourseService {
 
 
         return new ResponseEntity<>(course, HttpStatus.OK);
+    }
+
+    //**************** Delete student By Id *************
+    public ResponseEntity<String> deleteCourseById(Long id) {
+
+        if (id <= 0)
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+
+        Course courseToDelete = courseRepository.findByCourseId(id);
+        if (courseToDelete == null) {
+            return new ResponseEntity<>("Course not exists to delete", HttpStatus.NOT_FOUND);
+        }
+        courseRepository.deleteById(id);
+
+        return new ResponseEntity<>("Course deleted successfully", HttpStatus.OK);
     }
 
 }
