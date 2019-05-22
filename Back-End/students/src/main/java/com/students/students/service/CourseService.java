@@ -81,5 +81,17 @@ public class CourseService {
 
         return new ResponseEntity<>("Course deleted successfully", HttpStatus.OK);
     }
+    //**************** Update Course By Id *************
+    public ResponseEntity<String> updateCourse(Course course) {
+
+        Course courseInDB = courseRepository.findByCourseId(course.getCourseId());
+        if (courseInDB == null)
+            return new ResponseEntity<>("Course not exists to update", HttpStatus.NOT_FOUND);
+
+
+        courseRepository.save(course);
+
+        return new ResponseEntity<>("Course updated successfully", HttpStatus.OK);
+    }
 
 }

@@ -11,8 +11,7 @@ class EditStudent extends Component {
             email: '',
             address: '',
             phone: '',
-            studentId:0
-            
+            studentId:0            
         }
     }
     getStudentInfo = (e) => {
@@ -46,11 +45,9 @@ class EditStudent extends Component {
                     phone:respons.data.phone,
                     studentId:respons.data.studentId
 
-
                 });
                 console.log(respons)
-            })
-            
+            })            
             
     }
     render() {
@@ -99,7 +96,6 @@ class EditStudent extends Component {
                     <label  htmlFor="phone">Telephone</label>
                     <span className="helper-text" data-error="wrong must be 10 digits" data-success="right"></span>
                 </div>
-
                 <button className="btn waves-effect waves-light light-blue accent-4" type="submit" name="action">Save changes
                       <i className="material-icons right">send</i>
                 </button>
@@ -107,8 +103,6 @@ class EditStudent extends Component {
             </form>
 
         </div>
-
-
 
     </div>):
         (<div>
@@ -124,7 +118,6 @@ class EditStudent extends Component {
 
         )
     }
-
 
 }
 export default EditStudent

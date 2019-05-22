@@ -31,7 +31,7 @@ class DisplayCourses extends Component {
                     label: 'Yes',
                     onClick: () => {
                         alert('Click Ok');
-                        axios.delete("http://localhost:8080/course/deletecourse?id=" + id)
+                        axios.delete("http://localhost:8080/course/deleteCourse?id=" + id)
                             .then((respons) => {
                                 console.log(respons);
                                 window.location.reload();
@@ -59,7 +59,7 @@ class DisplayCourses extends Component {
                     <td >{course.startDate}</td>
                     <td>{course.endDate}</td>                    
                     
-                  <td>  <NavLink to={"/course/editcourse/" + course.socialSecurityNumber} id="refresh"> <i className="material-icons edit">refresh</i></NavLink></td>
+                  <td>  <NavLink to={"/course/coursePort/editCourse/" + course.courseId} id="refresh"> <i className="material-icons edit">refresh</i></NavLink></td>
                     <td>  <a href="#" onClick={() => this.deletecourse(course.courseId)}><i className="material-icons delete">clear</i> </a></td>
                 </tr>
 

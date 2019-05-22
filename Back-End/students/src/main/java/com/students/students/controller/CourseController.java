@@ -30,13 +30,17 @@ public class CourseController {
 
     }
     @GetMapping("/course/getCourseById")
-    public ResponseEntity<Course> getOnCourseById(@RequestParam Long courseId){
+    public ResponseEntity<Course> getOnCourseById(@RequestParam Long id){
 
-        return courseService.getCourseById(courseId);
+        return courseService.getCourseById(id);
     }
     @DeleteMapping("/course/deleteCourse")
     public ResponseEntity<String> deleteCourse(@RequestParam Long id){
         return courseService.deleteCourseById(id);
+    }
+    @PutMapping("/course/updateCourse")
+    public ResponseEntity<String> updateStudent(@RequestBody Course course){
+        return courseService.updateCourse(course);
     }
 
 }

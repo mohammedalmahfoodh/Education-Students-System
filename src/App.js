@@ -8,6 +8,7 @@ import DisplayStudents from './components/student/displayStudents/displayStudent
 import SearchModify from './components/student/searchAndModify/searchModify';
 import StudentCreatedSuccessfully from './components/student/addNewStudent/studentCreatedSuccessfully';
 
+import EditCourse from './components/course/EditCourse/editCourse';
 import AddNewCourse from './components/course/addCourse/addNewCourse';
 import CoursePortal from './components/course/coursePortal/coursePortal';
 import DisplayCourses from './components/course/displayCourse/displayCourse';
@@ -35,13 +36,15 @@ class App extends Component {
         <Route path='/student/DisplayStudents' component={DisplayStudents}/>
         <Route path='/student/SearchModify' component={SearchModify}/>
        
-        AddNewCourse
+       
+        
         <Route path='/course/addNewCourse' component={AddNewCourse}/>
         <Route path='/course/displayCourse' component={DisplayCourses}/>
         <Route path='/course/CoursePortal' component={CoursePortal}/>
         <Route path='/addedSuccessfully' component={StudentCreatedSuccessfully}/>
         <Route path='/about' component={Home}/>  
-        <Route path="/student/editStudent/:student_ssn" component={EditStudent}/>   
+        <Route path="/student/editStudent/:student_ssn" component={EditStudent}/> 
+        <Route path="/course/coursePort/editCourse/:course_id" component={EditCourse}/> 
         </Switch>
        
       </div>
