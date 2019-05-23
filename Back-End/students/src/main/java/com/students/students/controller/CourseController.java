@@ -30,12 +30,12 @@ public class CourseController {
 
     }
     @GetMapping("/course/getCourseById")
-    public ResponseEntity<Course> getOnCourseById(@RequestParam Long id){
+    public ResponseEntity<Course> getOnCourseById(@RequestParam long id){
 
         return courseService.getCourseById(id);
     }
     @DeleteMapping("/course/deleteCourse")
-    public ResponseEntity<String> deleteCourse(@RequestParam Long id){
+    public ResponseEntity<String> deleteCourse(@RequestParam long id){
         return courseService.deleteCourseById(id);
     }
     @PutMapping("/course/updateCourse")

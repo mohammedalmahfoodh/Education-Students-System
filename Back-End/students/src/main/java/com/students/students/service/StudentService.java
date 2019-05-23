@@ -41,7 +41,7 @@ public class StudentService {
     }
 
     //**************** Get student by ID *************
-    public ResponseEntity<Student> getStudentById(int id) {
+    public ResponseEntity<Student> getStudentById(long id) {
 
         Student student = studentRepository.findById(id);
         if (student == null)
@@ -93,7 +93,7 @@ public class StudentService {
     }
 
     //**************** Delete student By Id *************
-    public ResponseEntity<String> deleteStudentById(int id) {
+    public ResponseEntity<String> deleteStudentById(long id) {
 
         if (id <= 0)
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);

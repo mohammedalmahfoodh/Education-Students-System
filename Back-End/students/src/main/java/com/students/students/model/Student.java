@@ -15,21 +15,29 @@ import java.util.Set;
 public class Student implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int studentId;
+    private long studentId;
     private String name;
     private String socialSecurityNumber;
     private String email;
     private String address;
     private String phone;
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnore
-    private Set<Education> courseList = new HashSet<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "education_id")
+    private Education education;
 
-    public int getStudentId() {
+    public Education getEducation() {
+        return education;
+    }
+
+    public void setEducation(Education education) {
+        this.education = education;
+    }
+
+    public long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(int studentId) {
+    public void setStudentId(long studentId) {
         this.studentId = studentId;
     }
 
@@ -73,11 +81,5 @@ public class Student implements Serializable {
         this.phone = phone;
     }
 
-    public Set<Education> getCourseList() {
-        return courseList;
-    }
 
-    public void setCourseList(Set<Education> courseList) {
-        this.courseList = courseList;
-    }
 }

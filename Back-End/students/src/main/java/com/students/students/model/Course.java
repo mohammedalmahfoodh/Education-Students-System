@@ -23,11 +23,18 @@ public class Course implements Serializable {
     private LocalDate startDate;
 
     private LocalDate endDate;
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Education> education = new HashSet<>();
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "education_id")
+    private Education education;
 
+    public Education getEducation() {
+        return education;
+    }
 
+    public void setEducation(Education education) {
+        this.education = education;
+    }
 
     public long getCourseId() {
         return courseId;
@@ -61,11 +68,5 @@ public class Course implements Serializable {
         this.endDate = endDate;
     }
 
-    public Set<Education> getEducation() {
-        return education;
-    }
 
-    public void setEducation(Set<Education> education) {
-        this.education = education;
-    }
 }

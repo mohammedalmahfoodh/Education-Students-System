@@ -9,15 +9,15 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 
-public interface StudentRepository extends CrudRepository<Student, Integer> {
+public interface StudentRepository extends CrudRepository<Student, Long> {
 
    Student findByEmail(String email);
 
    Student findBySocialSecurityNumber(String socialSecurityNumber);
 
-   Student findById(int id);
+   Student findById(long id);
 
-   void deleteById(int id);
+   void deleteById(long id);
 
 
 }

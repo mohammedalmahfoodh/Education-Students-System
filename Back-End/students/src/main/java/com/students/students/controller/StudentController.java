@@ -47,7 +47,7 @@ public class StudentController {
     }
 
     @GetMapping("/student/getById")
-    public ResponseEntity<Student> getStudentById(@RequestParam int id) {
+    public ResponseEntity<Student> getStudentById(@RequestParam long id) {
 
         return studentService.getStudentById(id);
 
@@ -74,7 +74,7 @@ public class StudentController {
 
     }
     @DeleteMapping("/student/deleteStudent")
-    public ResponseEntity<String> deleteStudent(@RequestParam int id){
+    public ResponseEntity<String> deleteStudent(@RequestParam long id){
        return studentService.deleteStudentById(id);
     }
 

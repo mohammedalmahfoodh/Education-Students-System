@@ -1,31 +1,51 @@
 package com.students.students.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Table(name = "educations")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"courseName", "updatedAt"},allowGetters = true,allowSetters = true)
 @Entity
 public class Education implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long educationId;
     private String educationName;
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime startDate;
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime endDate;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "student_id")
-    private Student student;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "course_id")
-    private Course course;
+
+    private LocalDate startDate;
+
+    private LocalDate endDate;
+
+    @OneToMany(mappedBy = "education", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Set<Student> students = new HashSet<>();
+
+    @OneToMany(mappedBy = "education", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Set<Course> courses = new HashSet<>();
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
+
+    public Set<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Set<Course> courses) {
+        this.courses = courses;
+    }
 
     public long getEducationId() {
         return educationId;
@@ -43,35 +63,23 @@ public class Education implements Serializable {
         this.educationName = educationName;
     }
 
-    public LocalDateTime getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDateTime startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDateTime getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDateTime endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
-    public Student getStudent() {
-        return student;
-    }
 
-    public void setStudent(Student student) {
-        this.student = student;
-    }
 
-    public Course getCourse() {
-        return course;
-    }
 
-    public void setCourse(Course course) {
-        this.course = course;
-    }
 }

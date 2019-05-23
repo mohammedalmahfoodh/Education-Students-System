@@ -57,7 +57,7 @@ public class CourseService {
 
     //*********************** Get Course By Id *****************
 
-    public ResponseEntity<Course> getCourseById(Long courseId) {
+    public ResponseEntity<Course> getCourseById(long courseId) {
 
         Course course = courseRepository.findByCourseId(courseId);
         if (course == null)
@@ -67,8 +67,8 @@ public class CourseService {
         return new ResponseEntity<>(course, HttpStatus.OK);
     }
 
-    //**************** Delete student By Id *************
-    public ResponseEntity<String> deleteCourseById(Long id) {
+    //**************** Delete course By Id *************
+    public ResponseEntity<String> deleteCourseById(long id) {
 
         if (id <= 0)
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
