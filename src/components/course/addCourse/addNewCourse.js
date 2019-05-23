@@ -55,7 +55,7 @@ class AddNewCourse extends Component {
         axios.post('http://localhost:8080/course/savecourse',
         {courseName:this.state.courseName,startDate:this.state.startDate,endDate:this.state.endDate} )
             .then(res => console.log(res))
-        setTimeout(() => { this.props.history.push('/addedSuccessfully') }, 1000)
+        setTimeout(() => { this.props.history.push('/course/courseAdded') }, 1000)
 
     }
     isDisabled() {
