@@ -64,7 +64,7 @@ class EditCourse extends Component {
         console.log(this.state);
         axios.put('http://localhost:8080/course/updateCourse', this.state)
             .then(res => console.log(res))
-        setTimeout(() => { this.props.history.push('/addedSuccessfully') }, 1000)
+        setTimeout(() => { this.props.history.push('/course/courseUpdated') }, 1000)
 
     }
 

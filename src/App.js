@@ -12,6 +12,7 @@ import EditCourse from './components/course/EditCourse/editCourse';
 import AddNewCourse from './components/course/addCourse/addNewCourse';
 import CoursePortal from './components/course/coursePortal/coursePortal';
 import DisplayCourses from './components/course/displayCourse/displayCourse';
+import CourseUpdatedSuccessfully from './components/course/courseUpdated/courseUpdated';
 
 import {BrowserRouter,Route,Switch}from 'react-router-dom';
 import EditStudent from'./components/student/EditStudent/editStudent'
@@ -37,7 +38,7 @@ class App extends Component {
         <Route path='/student/SearchModify' component={SearchModify}/>
        
        
-        
+        <Route path='/course/courseUpdated' component={CourseUpdatedSuccessfully}/>
         <Route path='/course/addNewCourse' component={AddNewCourse}/>
         <Route path='/course/displayCourse' component={DisplayCourses}/>
         <Route path='/course/CoursePortal' component={CoursePortal}/>

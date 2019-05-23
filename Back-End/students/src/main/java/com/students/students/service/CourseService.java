@@ -88,6 +88,10 @@ public class CourseService {
         if (courseInDB == null)
             return new ResponseEntity<>("Course not exists to update", HttpStatus.NOT_FOUND);
 
+        LocalDate localDate= course.getStartDate().plusDays(1);
+        LocalDate localDate1= course.getEndDate().plusDays(1);
+        course.setStartDate(localDate);
+        course.setEndDate(localDate1);
 
         courseRepository.save(course);
 
