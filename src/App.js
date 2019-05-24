@@ -2,6 +2,10 @@ import React ,{ Component } from 'react';
 import NavApp from './components/NavApp';
 import Home from './components/Home/Home';
 
+import EducationAdded from './components/Education/CreateEducation/educationAdded';
+import EducationPortal from './components/Education/EducationPortal/educationPortal';
+import CreateEducation from './components/Education/CreateEducation/createEducatin';
+
 import AddNewStudent from './components/student/addNewStudent/addNewStudent';
 import MainStudentPortal from './components/student/mainStudentPortal/mainStudentPortal';
 import DisplayStudents from './components/student/displayStudents/displayStudents';
@@ -34,6 +38,11 @@ class App extends Component {
         
         <Route exact path='/' component={Home}/>
         <Route  path='/home' component={Home}/>
+          
+        <Route path='/education/educationAddedSuccessfully' component={EducationAdded}/> 
+        <Route path='/education/educationPortal' component={EducationPortal}/>  
+        <Route path='/education/createEducation' component={CreateEducation}/> 
+
         <Route path='/student/studentPortal/AddNewStudent' component={AddNewStudent}/>
         <Route path='/student/studentPortal' component={MainStudentPortal}/>
         <Route path='/student/DisplayStudents' component={DisplayStudents}/>

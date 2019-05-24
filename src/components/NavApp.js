@@ -29,7 +29,7 @@ const NavApp = () => {
 
                <li><NavLink className=" z-depth-2" to="/student/studentPortal">Student</NavLink> </li> 
                <li><NavLink className="z-depth-2" to="/course/CoursePortal">Course</NavLink> </li>  
-               <li><NavLink className="z-depth-2" to="/student/studentPortal">Education</NavLink> </li>  
+               <li><NavLink className="z-depth-2" to="/education/educationPortal">Education</NavLink> </li>  
                 
                 </ul>
                 

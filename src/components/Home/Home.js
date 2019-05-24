@@ -25,11 +25,14 @@ const Home = () => {
             </div>
 
             <div className="col s7 card-panel center hoverable addEducation indigo lighten-3">
+              <NavLink to="/education/educationPortal">
+                 
                 <img src={require('../../Images/college-wide.jpg')} alt="" />
                 <h5>Here you can create new education.</h5>
+                </NavLink>
             </div>
 
-            <div className="col s7 card-panel hoverable">4</div>
+            
 
 
 
