@@ -77,7 +77,7 @@ class DisplayStudents extends Component {
 
 
         return (
-            <div className="row container ">
+            <div className="row container componentContainer">
                 <h5 className="text-info">All students Displayed bellow</h5>
                 <table className="table">
                     <thead className="thead-dark">

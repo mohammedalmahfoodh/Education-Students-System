@@ -11,4 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
+#logo{
+  width: 8rem;
+  height: 8rem;
+  
+}
+#ulLogo{
+   margin-left: 43%;
+}
+#navHome{
+  height: 95px;
+}
+.ulLinks{
+  padding-top: 2%;
+}
+.componentContainer{
+  margin-top: 5%;
+}
