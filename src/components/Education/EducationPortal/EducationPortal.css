@@ -1,4 +1,8 @@
 #EducationPortalContainer{
-    margin-top: 10%;
-    margin-left: 20%;
+    margin-top: 5%;
+    margin-left: 30%;
+}
+.EducationPortalImage{
+    width: 10rem;
+    height: 10rem;
 }

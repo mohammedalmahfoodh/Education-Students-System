@@ -73,9 +73,9 @@ class CreateNewEducation extends Component {
                     <form id="addStudent" onSubmit={this.createEducation}>
                         <div className="input-field  ">
                             <i className="material-icons prefix">account_circle</i>
-                            <input id="EducationName" type="text" className="validate " value={this.state.name}
+                            <input id="educationName" type="text" className="validate " value={this.state.name}
                                 onChange={(this.getEducationInfo)} required minLength="3" />
-                            <label htmlFor="EducationName">Education Name</label>
+                            <label htmlFor="educationName">Education Name</label>
                             <span className="helper-text" data-error="wrong must be at least 3 characters" data-success="right"></span>
                         </div>
                         <div className="input-field  ">

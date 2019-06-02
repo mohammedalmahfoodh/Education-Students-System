@@ -7,7 +7,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Table(name = "educations")
@@ -19,6 +21,10 @@ public class Education implements Serializable {
     private long educationId;
     private String educationName;
 
+    public Education() {
+        this.courses=new ArrayList<>();
+    }
+
     private LocalDate startDate;
 
     private LocalDate endDate;
@@ -27,9 +33,9 @@ public class Education implements Serializable {
     @JsonIgnore
     private Set<Student> students = new HashSet<>();
 
-    @OneToMany(mappedBy = "education", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnore
-    private Set<Course> courses = new HashSet<>();
+    @OneToMany(mappedBy = "education", cascade = CascadeType.ALL)
+
+    private List<Course> courses ;
 
     public Set<Student> getStudents() {
         return students;
@@ -39,11 +45,11 @@ public class Education implements Serializable {
         this.students = students;
     }
 
-    public Set<Course> getCourses() {
+    public List<Course> getCourses() {
         return courses;
     }
 
-    public void setCourses(Set<Course> courses) {
+    public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
 

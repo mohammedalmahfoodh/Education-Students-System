@@ -19,7 +19,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @Service
-@Transactional
+
 public class CourseService {
     @Autowired
     CourseRepository courseRepository;

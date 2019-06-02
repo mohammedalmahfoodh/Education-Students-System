@@ -1,6 +1,8 @@
 package com.students.students.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -12,7 +14,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Table(name = "courses")
-@EntityListeners(AuditingEntityListener.class)
 @Entity
 public class Course implements Serializable {
     @Id
@@ -24,8 +25,9 @@ public class Course implements Serializable {
 
     private LocalDate endDate;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne()
     @JoinColumn(name = "education_id")
+    @JsonBackReference
     private Education education;
 
     public Education getEducation() {

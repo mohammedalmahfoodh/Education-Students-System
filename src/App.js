@@ -2,6 +2,10 @@ import React ,{ Component } from 'react';
 import NavApp from './components/NavApp';
 import Home from './components/Home/Home';
 
+import CoursesAddeToEducation from './components/Education/AddCoursesToEdu/CoursesAddedSucce'
+import AddCoursesToEducation from './components/Education/AddCoursesToEdu/AddCourses'
+import DisplayEducations from './components/Education/displayEducation/displayEducation'
+import EnrollStudents from './components/Education/enroll students/enrollStudents'
 import EducationAdded from './components/Education/CreateEducation/educationAdded';
 import EducationPortal from './components/Education/EducationPortal/educationPortal';
 import CreateEducation from './components/Education/CreateEducation/createEducatin';
@@ -39,6 +43,10 @@ class App extends Component {
         <Route exact path='/' component={Home}/>
         <Route  path='/home' component={Home}/>
           
+        <Route path='/education/coursesAddeToEducation' component={CoursesAddeToEducation}/>  
+        <Route path='/education/addCoursesToEducation' component={AddCoursesToEducation}/>  
+        <Route path='/education/displayAllEduactions' component={DisplayEducations}/>  
+        <Route path='/education/enrollStudents' component={EnrollStudents}/>  
         <Route path='/education/educationAddedSuccessfully' component={EducationAdded}/> 
         <Route path='/education/educationPortal' component={EducationPortal}/>  
         <Route path='/education/createEducation' component={CreateEducation}/> 
